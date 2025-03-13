@@ -83,3 +83,15 @@ hr {
     cursor: pointer;
     color: hsl(292, 42%, 50%);
 }
+.faq-answer-icon {
+    display: none;
+}
+
+.faq-item2.open .faq-answer-icon {
+    display: block;
+    color: hsl(275, 100%, 79%);
+}
+
+.hidden {
+    display: none;
+}
