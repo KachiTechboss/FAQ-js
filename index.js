@@ -6,15 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.icon-minus'); // Select the icon
 
         question.addEventListener('click', () => {
-            toggleAnswer(item);
+            toggleAnswer(item, icon, answer);
         });
 
         question.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                toggleAnswer(item);
+                toggleAnswer(item, icon, answer);
             }
         });
     });
@@ -37,12 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function toggleAnswer(item) {
+    function toggleAnswer(item, icon, answer) {
         const isOpen = item.classList.contains('open');
         if (isOpen) {
             item.classList.remove('open');
+            icon.src = 'assets/images/icon-plus.svg'; // Change to icon-plus
+            answer.style.display = 'none'; // Hide the answer
         } else {
             item.classList.add('open');
+            icon.src = 'assets/images/icon-minus.svg'; // Change to icon-minus
+            answer.style.display = 'block'; // Show the answer
         }
     }
 });
